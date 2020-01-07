@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>matt chen minesweeper</title>
+    <meta name="minesw" content="minesweeper">
+    <link rel="stylesheet" type="text/css" href="mattc.css">
+    <script src="msw.js"></script>
+    <!--<script src="script.js"></script>-->
+  </head>
+  <body>
+    <div class="header" id="robot">
+      <h1>🤖</h1>
+    </div>
+
+    <div id="mswshell">
+        <div id = "start-buttons">
+            <p id="selectdiff">select difficulty</p>
+            <button class = "mswdifficulty" id = "msw-e" onclick="initialize('0')">easy<br>(9x9, 10 mines)</button>
+            <br><button class = "mswdifficulty" id = "msw-i" onclick="initialize('1')">intermediate<br>(16x16, 40 mines)</button>
+            <br><button class = "mswdifficulty" id = "msw-h" onclick="initialize('2')">hard<br>(16x30, 99 mines)</button>
+        </div>
+
+        <div id = "eshell">
+            <table class = "msw-board" id = "easy-board">
+                <tr class="mswRow">
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                </tr>
+                <tr class="mswRow">
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                </tr>
+                <tr class="mswRow">
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                </tr>
+                <tr class="mswRow">
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                </tr>
+                <tr class="mswRow">
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                </tr>
+                <tr class="mswRow">
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                </tr>
+                <tr class="mswRow">
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                </tr>
+                <tr class="mswRow">
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                </tr>
+                <tr class="mswRow">
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "easy-button" value="0" data-disabled="0"></button></th>
+                </tr>
+            </table>
+        </div>
+
+        <div id = "ishell">
+            <table class = "msw-board" id = "intermediate-board">
+                <tr class="mswRow">
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                </tr>
+                <tr class="mswRow">
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                </tr>
+                <tr class="mswRow">
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                </tr>
+                <tr class="mswRow">
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                </tr>
+                <tr class="mswRow">
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                </tr>
+                <tr class="mswRow">
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                </tr>
+                <tr class="mswRow">
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                </tr>
+                <tr class="mswRow">
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                </tr>
+                <tr class="mswRow">
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                </tr>
+                <tr class="mswRow">
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                </tr>
+                <tr class="mswRow">
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                </tr>
+                <tr class="mswRow">
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                </tr>
+                <tr class="mswRow">
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                </tr>
+                <tr class="mswRow">
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                </tr>
+                <tr class="mswRow">
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                </tr>
+                <tr class="mswRow">
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "intermediate-button" value="0" data-disabled="0"></button></th>
+                </tr>
+            </table>
+        </div>
+
+        <div id = "hshell">
+            <table class = "msw-board" id = "hard-board">
+                <tr class="mswRow">
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                </tr>
+                <tr class="mswRow">
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                </tr>
+                <tr class="mswRow">
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                </tr>
+                <tr class="mswRow">
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                </tr>
+                <tr class="mswRow">
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                </tr>
+                <tr class="mswRow">
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                </tr>
+                <tr class="mswRow">
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                </tr>
+                <tr class="mswRow">
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                </tr>
+                <tr class="mswRow">
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                </tr>
+                <tr class="mswRow">
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                </tr>
+                <tr class="mswRow">
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                </tr>
+                <tr class="mswRow">
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                </tr>
+                <tr class="mswRow">
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                </tr>
+                <tr class="mswRow">
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                </tr>
+                <tr class="mswRow">
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                </tr>
+                <tr class="mswRow">
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                    <th><button type="button" class = "hard-button" value="0" data-disabled="0"></button></th>
+                </tr>
+            </table>
+        </div>
+        <div id = "msw-info">
+            <div id="minesleft">mines left: </div>
+            <button type="button" id="reset-msw" onclick="reset()">reset</button>
+            <div id="winlose">0</div>
+        </div>
+        <button type="button" id="change-diff" onclick="startpage()">change difficulty</button>
+    </div>
+
+    <div class="footer">
+      <ul id="msg">
+        <li>play some minesweeper</li>
+        <li><a href="mattc.html" >home</a></li>
+      </ul>
+    </div>
+  </body>
+</html>

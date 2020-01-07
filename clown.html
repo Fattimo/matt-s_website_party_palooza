@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>matt chen tic tac toe</title>
+    <meta name="ttt" content="tic tac toe">
+    <link rel="stylesheet" type="text/css" href="mattc.css">
+    <script src="ttt.js"></script>
+    <!--<script src="script.js"></script>-->
+  </head>
+  <body>
+    <div class="header" id="clown">
+      <h1>🤡</h1>
+    </div>
+
+    <div id="tttshell">
+      <table id="ttt">
+        <tr id="r1">
+          <th><button type="button" class = "tttButton" id="one" value = "one" onclick="toggle('one')"></button></th>
+          <th><button type="button" class = "tttButton" id="two" value = "two" onclick="toggle('two')"></button></th>
+          <th><button type="button" class = "tttButton" id="three" value = "three" onclick="toggle('three')"></button></th>
+        </tr>
+        <tr id="r2">
+          <th><button type="button" class = "tttButton" id="four" value="four" onclick="toggle('four')"></button></th>
+          <th><button type="button" class = "tttButton" id="five" value = "five" onclick="toggle('five')"></button></th>
+          <th><button type="button" class = "tttButton" id="six" value = "six" onclick="toggle('six')"></button></th>
+        </tr>
+        <tr>
+          <th><button type="button" class = "tttButton" id="seven" value = "seven" onclick="toggle('seven')"></button></th>
+          <th><button type="button" class = "tttButton" id="eight" value = "eight" onclick="toggle('eight')"></button></th>
+          <th><button type="button" class = "tttButton" id="nine" value = "nine" onclick="toggle('nine')"></button></th>
+        </tr>
+      </table>
+
+      <p id="currentText">current turn: x</p>
+
+      <button type="button" id="reset" onclick="reset()">reset</button>
+
+      <!--<p id="test">yeet</p>-->
+    </div>
+
+    <div class="footer">
+      <ul id="msg">
+        <li>play some tic tac toe</li>
+        <li><a href="mattc.html" >home</a></li>
+      </ul>
+    </div>
+
+    </table>
+  </body>
+</html>

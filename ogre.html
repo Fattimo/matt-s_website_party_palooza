@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>tetris</title>
+    <meta name="matt chen tetris" content="tetris">
+    <link rel="stylesheet" type="text/css" href="mattc.css">
+    <script src="tet.js"></script>
+    <!--<script src="script.js"></script>-->
+  </head>
+  <body>
+    <div class="header" id="ogre">
+      <h1>👹</h1>
+    </div>
+
+    <div id = "tet-wrapper">
+      <div id="tet-grid">
+        <div class = "tetRow" value = "0">
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+        </div>
+        <div class = "tetRow" value = "1">
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+        </div>
+        <div class = "tetRow" value = "2">
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+        </div>
+        <div class = "tetRow" value = "3">
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+        </div>
+        <div class = "tetRow" value = "4">
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+        </div>
+        <div class = "tetRow" value = "5">
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+        </div>
+        <div class = "tetRow" value = "6">
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+        </div>
+        <div class = "tetRow" value = "7">
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+        </div>
+        <div class = "tetRow" value = "8">
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+        </div>
+        <div class = "tetRow" value = "9">
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+        </div>
+        <div class = "tetRow" value = "10">
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+        </div>
+        <div class = "tetRow" value = "11">
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+        </div>
+        <div class = "tetRow" value = "12">
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+        </div>
+        <div class = "tetRow" value = "13">
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+        </div>
+        <div class = "tetRow" value = "14">
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+        </div>
+        <div class = "tetRow" value = "15">
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+        </div>
+        <div class = "tetRow" value = "16">
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+        </div>
+        <div class = "tetRow" value = "17">
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+        </div>
+        <div class = "tetRow" value = "18">
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+        </div>
+        <div class = "tetRow" value = "19">
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+        </div>
+        <div class = "tetRow" value = "20">
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+        </div>
+        <div class = "tetRow" value = "21">
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+        </div>
+        <div class = "tetRow" value = "22">
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+        </div>
+        <div class = "tetRow" value = "23">
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+          <div class = "tetCol" data-value = "0"></div>
+        </div>
+      </div>
+    </div>
+
+    <button onclick="test1()">test1</button>
+    <button onclick="test2()">test2</button>
+    <button onclick="test3()">test3</button>
+    <button onclick="left()">left</button>
+    <button onclick="right()">right</button>
+    <button onclick="down()">down</button>
+    <div id ="test" data-value = "0"></div>
+
+    <!--<div class="footer">
+      <ul id="msg">
+        <li>play some tetris</li>
+        <li><a href="mattc.html" >home</a></li>
+      </ul>
+    </div>-->
+  </body>
+</html>

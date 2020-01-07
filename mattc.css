@@ -1,0 +1,296 @@
+body{
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+/*class level*/
+.header {
+    padding: 15px;
+    text-align: center;
+    background: #F2B3FF;
+    color: black;
+    font-size: 20px;
+    
+}
+
+.footer{
+    text-align: center;
+    font-size: 10px;
+    bottom:5px;
+    left: 0px;
+    width: 100%;
+    position: fixed;
+    text-align: center;
+    
+}
+
+.footer ul{
+    list-style: none;
+    list-style-type: none;
+    padding: 0px;
+    
+}
+
+/*mattc page*/
+#directory #dir {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 110px;
+}
+
+#directory #dir th td {
+    padding: 0px;
+}
+
+#directory #dir th a {
+    text-decoration: none;
+}
+
+#hyperlinks li{
+    display: inline;
+}
+
+/*clown page*/
+#clown{
+    background: #FF80D5;
+}
+
+#tttshell{
+    padding-top: 50px;
+    text-align: center;
+}
+
+#ttt{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#ttt th button {
+    background-color: #DEDEDE;
+    display: table-cell;
+    border: none;
+    width: 120px;
+    height: 120px;
+    font-size:80px;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    vertical-align: text-top;
+    transition-duration: 0.2s;
+}
+
+#ttt th button:hover {
+    background-color: #EDEDED;
+    display: table-cell;
+    border: none;
+    width: 120px;
+    height: 120px;
+    font-size:80px;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    vertical-align: text-top;
+}
+
+
+#reset {
+    width: 80px;
+    height:30px;
+    font-size: 15px;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+/*ogre page*/
+#ogre {
+    background-color: #FFD480;
+}
+
+#tet-wrapper {
+    text-align: center;
+    width: 100%;
+}
+
+#tet-grid {
+    display: inline-grid;
+    width:110px;
+    background: grey;
+    justify-content: center;
+}
+
+
+.tetRow {
+    display:grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
+    
+}
+
+.tetCol {
+    background-color: white;
+    display: inline;
+    padding:10px;
+    border: 1px solid grey;
+    height: 0;
+    width: 0;
+}
+
+/*goblin page*/
+#goblin {
+    background-color: #8095FF;
+}
+
+/*skull page*/
+#skull {
+    background-color: #9580FF;
+}
+
+/*ghost page*/
+#ghost {
+    background-color: #CCCCCC;
+}
+
+/*alien page*/
+#alien {
+    background-color: #95FF80;
+}
+
+/*robot page*/
+#robot {
+    background-color: #80FFFF;
+}
+
+#mswshell{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 0px;
+}
+
+#selectdiff {
+    font-size: 25px;
+}
+
+.mswdifficulty {
+    width: 200px;
+    height: 125px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    border-radius: 15px;
+    transition-duration: .2s;
+}
+
+#msw-e{
+    background-color:#E6FFE6;
+    border: 2px solid #66FF66;
+
+}
+
+#msw-e:hover{
+    background-color:#66FF66;
+}
+
+#msw-i {
+    background-color:#FFFFE6;
+    border: 2px solid #FFFF66;
+}
+
+#msw-i:hover {
+    background-color:#FFFF66;
+}
+
+#msw-h {
+    background-color:#FFE6E6;
+    border: 2px solid #FF6666;
+}
+
+#msw-h:hover {
+    background-color:#FF6666;
+}
+
+#eshell, #ishell, #hshell {
+    display: none;
+}
+
+
+.msw-board {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border-collapse: collapse;
+
+}
+
+.msw-board th button {
+    background-color: #EDEDED;
+    color:black;
+    display: table-cell;
+    border: none;
+    /*font-family: "Comic Sans MS", cursive, sans-serif;*/
+    vertical-align: text-top;
+    transition-duration: 0.2s;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-weight: bold;
+}
+
+.msw-board th button:disabled {
+    /*background-color: #DEDEDE;*/
+    display: table-cell;
+    border: none;
+    /*font-family: "Comic Sans MS", cursive, sans-serif;*/
+    vertical-align: text-top;
+    transition-duration: 0.2s;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    color:black;
+}
+
+.easy-button{
+    width:48px;
+    height:48px;
+}
+
+.intermediate-button, .hard-button{
+    width:26px;
+    height:26px;
+}
+
+#minesleft {
+    display: inline-block;
+    width: 195px;
+    text-align: left;
+}
+
+#winlose {
+    display: inline-block;
+    width: 195px;
+    text-align: right;
+}
+
+#reset-msw {
+    display: inline;
+    width: 60px;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    border-radius: 10px;
+    background-color: #C4C4C4;
+}
+
+#msw-info {
+    display: none;
+    margin-bottom: 10px;
+}
+
+#change-diff {
+    display:none;
+    margin-left: auto;
+    margin-right: auto;
+    width: 140px;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    border-radius: 10px;
+    background-color: #C4C4C4;
+}
+
+/*devil page*/
+#devil {
+    background-color: #FF8080;
+}
+
+/*angel page*/
+#angel {
+    background-color: #FFFF80;
+}
