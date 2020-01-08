@@ -44,6 +44,8 @@ body{
 
 #directory #dir th a {
     text-decoration: none;
+    background-color:#FFFFFF;
+    color:#000000;
 }
 
 #hyperlinks li{
