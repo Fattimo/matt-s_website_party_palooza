@@ -39,12 +39,17 @@ function Piece(fillColor, one, two, three, four) {
     }
 
     this.finalize = function() {
+        let rowValues = new Array;
         for(var i = 0; i < this.orientations[this.currentIndex].length; i++){
             getPoint(this.orientations[this.currentIndex][i].x + this.rowAdjustment,
                 this.orientations[this.currentIndex][i].y + this.colAdjustment).setAttribute("data-value", "1");
             //console.log(getPoint(this.orientations[this.currentIndex][i].x + this.rowAdjustment,
             //    this.orientations[this.currentIndex][i].y + this.colAdjustment).getAttribute('data-value'));
+            rowValues.push(this.orientations[this.currentIndex][i].x + this.rowAdjustment);
         }
+        //console.log([...new Set(rowValues)]);
+        let readableRows = [...new Set(rowValues)];
+        checkColClear(readableRows.sort(function(a, b){return a - b}));
     }
 
     this.cw = function() {
@@ -143,6 +148,30 @@ function getPoint(r, c) { //overload this method with coordinate
     return rows[r].children[c];
 }
 
+function checkColClear(rows) {//fucky with the long -- potentially shifting down then reading where the shift was. !!!Order array from top to bot?!!!
+    for(var i = 0; i<rows.length; i++) {
+        //debugger;
+        let clear = true;
+        for(var c = 0; c<10; c++){
+            if(getPoint(rows[i], c).getAttribute("data-value") === "0"){
+                //console.log(rows[i] + " " +c);
+                clear = false;
+                break;
+            }
+        }
+        //console.log(clear);
+        //console.log("clear " + rows[i]);
+        if(clear) {
+            for (var z = rows[i]; z > 0; z--) {
+                for (var c = 0; c<10; c++) {
+                    getPoint(z, c).setAttribute("data-value", getPoint(z-1, c).getAttribute("data-value"));
+                    getPoint(z, c).style.backgroundColor = getPoint(z-1, c).style.backgroundColor;
+                }
+            }
+        }
+    }
+}
+
 //pieces
 var leftGun = new Piece("#3355FF",
     ([new Coordinate(1,3), new Coordinate(0,3), new Coordinate(1,4), new Coordinate(1,5)]),
@@ -238,7 +267,9 @@ document.addEventListener("keydown", function(e) {
 
 function test1(){
     //console.log(getPoint(new Coordinate(0,0)));
-    leftGun.map();
+    long.map();
+    long.cw();
+    long.finalize();
     
 }
 function test2(){
