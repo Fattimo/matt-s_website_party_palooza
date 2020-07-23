@@ -105,13 +105,16 @@ body{
 }
 
 #tet-wrapper {
+    display: grid;
+    grid-template-columns: auto 220px 100px auto;
     text-align: center;
     width: 100%;
 }
 
 #tet-grid {
+    grid-column-start: 2;
+    grid-column-end: 3;
     display: inline-grid;
-    width:110px;
     background: grey;
     justify-content: center;
 }
@@ -130,6 +133,32 @@ body{
     border: 1px solid grey;
     height: 0;
     width: 0;
+}
+
+#tet-sidebar {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    display: grid;
+
+    background-color: orange;
+}
+
+#tet-next{
+    width: 100px;
+    background-color: green;
+    height: 200px;
+}
+
+#tet-hold{
+    width: 100px;
+    background-color: yellow;
+    height: 20px;
+}
+
+#tet-score{
+    width: 100px;
+    background-color: purple;
+    height: auto;
 }
 
 /*goblin page*/
