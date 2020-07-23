@@ -1,17 +1,17 @@
 # matt-s_website_party_palooza
-game site
-tap the emojis to play games
-currently only 2 games are done:
-1st emoji: tic tac toe
-robot: minesweeper
+## click the emojis to play games
 
-in development:
-tetris
+### currently only 2 games are done:
+1. 1st emoji: tic tac toe
+2. robot: minesweeper
 
-todo:
-ties on tic tac toe
+### in development:
+- tetris
 
-ideas:
-3x3 image swapper
-put cs3600 scripts to solve the game
-sudoku
+### todo:
+[ ] ties on tic tac toe
+
+### ideas:
+- 3x3 image swapper
+- a star scripts to solve games
+- sudoku
