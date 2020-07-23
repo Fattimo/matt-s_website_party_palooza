@@ -8,8 +8,9 @@
 ### in development:
 - tetris
 
-### todo:
+### todo/bugs:
 [ ] ties on tic tac toe
+[ ] replace misplaced flags with bomb icon on minesweeper
 
 ### ideas:
 - 3x3 image swapper
